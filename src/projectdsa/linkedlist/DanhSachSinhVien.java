@@ -305,7 +305,7 @@ public class DanhSachSinhVien {
 		
 		System.out.println("Danh sách sinh viên " + kq.toUpperCase() + " : ");
 		while(temp != null) {
-			if(temp.value.getKetQuaHocTap().toUpperCase() == kq.toUpperCase()) {
+			if(temp.value.getKetQuaHocTap().toUpperCase().equals(kq.toUpperCase())) {
 				System.out.println(temp.value);
 			}
 			

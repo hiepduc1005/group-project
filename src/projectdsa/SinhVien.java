@@ -11,7 +11,7 @@ public class SinhVien {
 	
 	private String ten;
 	
-	private BigDecimal diemTb;
+	private float diemTb;
 	
 	private String ketQuaHocTap;
 	
@@ -47,11 +47,11 @@ public class SinhVien {
 		this.ten = ten;
 	}
 
-	public BigDecimal getDiemTb() {
+	public float getDiemTb() {
 		return diemTb;
 	}
 
-	public void setDiemTb(BigDecimal diemTb) {
+	public void setDiemTb(float diemTb) {
 		this.diemTb = diemTb;
 	}
 

@@ -5,7 +5,24 @@ import java.util.Scanner;
 
 import projectdsa.linkedlist.DanhSachSinhVien;
 
+
+
 public class Menu {
+	
+	public static float nhapSoDung(Scanner sc, String string) {
+		float n;
+
+		do {
+			System.out.println(string);
+			while (!sc.hasNextFloat()) {
+				System.out.println("Vui lòng nhập số đúng : ");
+				sc.nextLine();
+			}
+			n = sc.nextFloat();
+			break;
+		} while (true);
+		return n;
+	}
 	
 	public static DanhSachSinhVien danhSachSinhVien;
 	
@@ -44,8 +61,7 @@ public class Menu {
 			String tenSv = sc.nextLine();
 			System.out.print("");
 			
-			System.out.println("Nhập điểm trung bình : ");
-			BigDecimal diemTb = sc.nextBigDecimal();
+			float diemTb = nhapSoDung(sc, "Nhập điểm trung bình :");
 			
 			sinhVien.setMaSv(maSv);
 			sinhVien.setHoDem(hoDem);
@@ -91,8 +107,7 @@ public class Menu {
 		String tenSv = sc.nextLine();
 		System.out.print("");
 		
-		System.out.println("Nhập điểm trung bình : ");
-		BigDecimal diemTb = sc.nextBigDecimal();
+		float diemTb = nhapSoDung(sc, "Nhập điểm trung bình: ");
 		
 		sinhVien.setMaSv(maSv);
 		sinhVien.setHoDem(hoDem);

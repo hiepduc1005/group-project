@@ -248,7 +248,7 @@ public class DanhSachSinhVien {
 		int count = 0;
 		
 		while(temp != null) {
-			if(temp.value.getDiemTb().doubleValue() >= 7) {
+			if(temp.value.getDiemTb() >= 7) {
 				count++;
 			}
 			temp = temp.next;
@@ -260,13 +260,18 @@ public class DanhSachSinhVien {
 		
 		System.out.println("Danh sách sinh viên có điểm trung bình >= 7 : ");
 		
+		
+		BigDecimal diemTb = BigDecimal.valueOf(temp.value.getDiemTb());
+		BigDecimal numberToCompare = BigDecimal.valueOf(7);
 		while(temp != null) {
-			if(temp.value.getDiemTb().compareTo(BigDecimal.valueOf(7)) >= 0) {
+			if(diemTb.compareTo(numberToCompare) >= 0) {
 				System.out.println(temp.value);
 			}
 			temp = temp.next;
 		}
 	}
+	
+	
 	
 	public void timViTriSinhVienTrongDanhSachBangMa(long maSv) {
 		if(maSv <= 0 ) {
@@ -326,7 +331,7 @@ public class DanhSachSinhVien {
 		Node temp = head;
 		
 		while(temp != null) {
-			if(temp.value.getDiemTb().doubleValue() >= diemTb) {
+			if(temp.value.getDiemTb() >= diemTb) {
 				temp.value.setKetQuaHocTap(KQHT_DO);
 			}
 			else {
@@ -348,10 +353,10 @@ public class DanhSachSinhVien {
 			return;
 		}
 		
-		
+	
 		for(Node i = head ; i != null ; i = i.next) {
 			for(Node j = i.next ; j != null ; j = j.next) {
-				if(i.value.getDiemTb().compareTo(j.value.getDiemTb()) < 0) {
+				if(BigDecimal.valueOf(i.value.getDiemTb()).compareTo(BigDecimal.valueOf(j.value.getDiemTb())) < 0) {
 					SinhVien temp = i.value;
 					i.value = j.value;
 					j.value = temp;
@@ -366,11 +371,14 @@ public class DanhSachSinhVien {
 			return;
 		}
 		
+		
 		int index = 0;
 		Node temp = head;
+		BigDecimal diemTb = BigDecimal.valueOf(temp.value.getDiemTb());
+		BigDecimal numberToCompare = BigDecimal.valueOf(5);
 		
 		while(temp != null) {
-			if(temp.value.getDiemTb().compareTo(BigDecimal.valueOf(5)) < 0) {
+			if(diemTb.compareTo(numberToCompare) < 0) {
 				removeAtIndex(index);
 			}
 			
